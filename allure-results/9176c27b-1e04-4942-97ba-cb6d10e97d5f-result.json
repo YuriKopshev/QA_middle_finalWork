@@ -1,0 +1,53 @@
+{
+    "name": "createNewClaimWithWrongTimeTest",
+    "start": 1676312811603,
+    "stop": 1676312839397,
+    "stage": "finished",
+    "description": null,
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+    ],
+    "attachments": [
+    ],
+    "parameters": [
+    ],
+    "uuid": "9176c27b-1e04-4942-97ba-cb6d10e97d5f",
+    "historyId": "bdf040089631e3f1ef89ec0e51d40d8a",
+    "fullName": "ru.iteco.fmhandroid.ui.AppActivityClaimTest.createNewClaimWithWrongTimeTest",
+    "labels": [
+        {
+            "name": "package",
+            "value": "ru.iteco.fmhandroid.ui"
+        },
+        {
+            "name": "testClass",
+            "value": "ru.iteco.fmhandroid.ui.AppActivityClaimTest"
+        },
+        {
+            "name": "testMethod",
+            "value": "createNewClaimWithWrongTimeTest"
+        },
+        {
+            "name": "suite",
+            "value": "ru.iteco.fmhandroid.ui.AppActivityClaimTest"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(981)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        }
+    ]
+}

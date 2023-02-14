@@ -1,0 +1,53 @@
+{
+    "name": "d_LoginWithEmptyLoginAndPassFieldTest",
+    "start": 1676368747768,
+    "stop": 1676368755914,
+    "stage": "finished",
+    "description": null,
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+    ],
+    "attachments": [
+    ],
+    "parameters": [
+    ],
+    "uuid": "30d19c2c-bc3a-4d72-a7ba-c5d9acc8d396",
+    "historyId": "56fe6da0918608f7b27dabbfb903d2e2",
+    "fullName": "ru.iteco.fmhandroid.ui.LoginTest.d_LoginWithEmptyLoginAndPassFieldTest",
+    "labels": [
+        {
+            "name": "package",
+            "value": "ru.iteco.fmhandroid.ui"
+        },
+        {
+            "name": "testClass",
+            "value": "ru.iteco.fmhandroid.ui.LoginTest"
+        },
+        {
+            "name": "testMethod",
+            "value": "d_LoginWithEmptyLoginAndPassFieldTest"
+        },
+        {
+            "name": "suite",
+            "value": "ru.iteco.fmhandroid.ui.LoginTest"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(896)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        }
+    ]
+}
