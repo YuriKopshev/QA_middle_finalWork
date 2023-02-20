@@ -1,9 +1,9 @@
 {
     "name": "createNewClaimWithWrongTimeTest",
-    "start": 1676312811603,
-    "stop": 1676312839397,
+    "start": 1676912442915,
+    "stop": 1676912455889,
     "stage": "finished",
-    "description": null,
+    "description": "Тест проверяет добавление новой заявки с неверным временем",
     "descriptionHtml": null,
     "status": "passed",
     "statusDetails": null,
@@ -13,17 +13,17 @@
     ],
     "parameters": [
     ],
-    "uuid": "9176c27b-1e04-4942-97ba-cb6d10e97d5f",
-    "historyId": "bdf040089631e3f1ef89ec0e51d40d8a",
-    "fullName": "ru.iteco.fmhandroid.ui.AppActivityClaimTest.createNewClaimWithWrongTimeTest",
+    "uuid": "6b30faa0-fa3e-41b3-af34-e1a78447fbba",
+    "historyId": "c5a09ab4e7f17c2c9921cb0d53d887bd",
+    "fullName": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest.createNewClaimWithWrongTimeTest",
     "labels": [
         {
             "name": "package",
-            "value": "ru.iteco.fmhandroid.ui"
+            "value": "ru.iteco.fmhandroid.ui.test"
         },
         {
             "name": "testClass",
-            "value": "ru.iteco.fmhandroid.ui.AppActivityClaimTest"
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
         },
         {
             "name": "testMethod",
@@ -31,7 +31,7 @@
         },
         {
             "name": "suite",
-            "value": "ru.iteco.fmhandroid.ui.AppActivityClaimTest"
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
         },
         {
             "name": "host",
@@ -39,7 +39,7 @@
         },
         {
             "name": "thread",
-            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(981)"
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1001)"
         },
         {
             "name": "framework",
@@ -48,6 +48,10 @@
         {
             "name": "language",
             "value": "kotlin"
+        },
+        {
+            "name": "severity",
+            "value": "minor"
         }
     ]
 }

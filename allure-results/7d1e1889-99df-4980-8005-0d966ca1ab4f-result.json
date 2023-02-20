@@ -1,9 +1,9 @@
 {
     "name": "createNewClaimWithEmptyFieldsTest",
-    "start": 1676312839409,
-    "stop": 1676312861006,
+    "start": 1676912455993,
+    "stop": 1676912465445,
     "stage": "finished",
-    "description": null,
+    "description": "Тест проверяет добавление новой заявки с незаполненными полями ввода",
     "descriptionHtml": null,
     "status": "passed",
     "statusDetails": null,
@@ -13,17 +13,17 @@
     ],
     "parameters": [
     ],
-    "uuid": "7d7a7393-1277-4a60-9814-0c3d26e92003",
-    "historyId": "96acac4228a06e9773b906593a3b140",
-    "fullName": "ru.iteco.fmhandroid.ui.AppActivityClaimTest.createNewClaimWithEmptyFieldsTest",
+    "uuid": "7d1e1889-99df-4980-8005-0d966ca1ab4f",
+    "historyId": "926d69bfc99e073abae0802c9ff112c8",
+    "fullName": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest.createNewClaimWithEmptyFieldsTest",
     "labels": [
         {
             "name": "package",
-            "value": "ru.iteco.fmhandroid.ui"
+            "value": "ru.iteco.fmhandroid.ui.test"
         },
         {
             "name": "testClass",
-            "value": "ru.iteco.fmhandroid.ui.AppActivityClaimTest"
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
         },
         {
             "name": "testMethod",
@@ -31,7 +31,7 @@
         },
         {
             "name": "suite",
-            "value": "ru.iteco.fmhandroid.ui.AppActivityClaimTest"
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
         },
         {
             "name": "host",
@@ -39,7 +39,7 @@
         },
         {
             "name": "thread",
-            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(981)"
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1001)"
         },
         {
             "name": "framework",
@@ -48,6 +48,10 @@
         {
             "name": "language",
             "value": "kotlin"
+        },
+        {
+            "name": "severity",
+            "value": "minor"
         }
     ]
 }

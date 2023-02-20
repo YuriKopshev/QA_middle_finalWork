@@ -1,0 +1,57 @@
+{
+    "name": "loginWithLoginAndPassInCapsFieldTest",
+    "start": 1676912592977,
+    "stop": 1676912598303,
+    "stage": "finished",
+    "description": "Тест проверяет вход в приложение с неверным логином и паролем",
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+    ],
+    "attachments": [
+    ],
+    "parameters": [
+    ],
+    "uuid": "a8a07e17-4d5b-4c18-a45b-f3eb42006bc7",
+    "historyId": "d2fe1cbec78b81de54fbbd89470bb495",
+    "fullName": "ru.iteco.fmhandroid.ui.test.LoginTest.loginWithLoginAndPassInCapsFieldTest",
+    "labels": [
+        {
+            "name": "package",
+            "value": "ru.iteco.fmhandroid.ui.test"
+        },
+        {
+            "name": "testClass",
+            "value": "ru.iteco.fmhandroid.ui.test.LoginTest"
+        },
+        {
+            "name": "testMethod",
+            "value": "loginWithLoginAndPassInCapsFieldTest"
+        },
+        {
+            "name": "suite",
+            "value": "ru.iteco.fmhandroid.ui.test.LoginTest"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1001)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        },
+        {
+            "name": "severity",
+            "value": "critical"
+        }
+    ]
+}

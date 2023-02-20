@@ -1,0 +1,62 @@
+{
+    "name": "loginWithSpaceInLoginFieldTest",
+    "start": 1676912615602,
+    "stop": 1676912681950,
+    "stage": "finished",
+    "description": "Тест проверяет вход в приложение с неверным логином и паролем",
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+    ],
+    "attachments": [
+        {
+            "source": "82ea898f-645d-49d6-8bc3-54a3e3c67dd6-attachment.txt",
+            "name": "Report",
+            "type": "text/plain"
+        }
+    ],
+    "parameters": [
+    ],
+    "uuid": "fc2d6b8c-820b-421c-9a6f-6d865750bb80",
+    "historyId": "5f0b7bf572403d15db318c2440a854c7",
+    "fullName": "ru.iteco.fmhandroid.ui.test.LoginTest.loginWithSpaceInLoginFieldTest",
+    "labels": [
+        {
+            "name": "package",
+            "value": "ru.iteco.fmhandroid.ui.test"
+        },
+        {
+            "name": "testClass",
+            "value": "ru.iteco.fmhandroid.ui.test.LoginTest"
+        },
+        {
+            "name": "testMethod",
+            "value": "loginWithSpaceInLoginFieldTest"
+        },
+        {
+            "name": "suite",
+            "value": "ru.iteco.fmhandroid.ui.test.LoginTest"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1001)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        },
+        {
+            "name": "severity",
+            "value": "critical"
+        }
+    ]
+}
