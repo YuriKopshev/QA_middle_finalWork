@@ -99,7 +99,8 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.12.2'
 
     // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
-    runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.6.10'
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.9.1'
+
 
     // https://mvnrepository.com/artifact/androidx.test.espresso/espresso-idling-resource
     implementation 'androidx.test.espresso:espresso-idling-resource:3.5.1'

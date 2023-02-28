@@ -1,19 +1,51 @@
 {
     "name": "loginWithEmptyLoginAndPassFieldTest",
-    "start": 1676912611240,
-    "stop": 1676912615557,
+    "start": 1677580088680,
+    "stop": 1677580093410,
     "stage": "finished",
     "description": "Тест проверяет вход в приложение с пустыми полями логин и пароль",
     "descriptionHtml": null,
     "status": "passed",
     "statusDetails": null,
     "steps": [
+        {
+            "name": "Клик по кнопке c id: 2131231039",
+            "start": 1677580092520,
+            "stop": 1677580092520,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверка отображения сообщения об ошибке c текстом: Login and password cannot be empty",
+            "start": 1677580092965,
+            "stop": 1677580092965,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        }
     ],
     "attachments": [
     ],
     "parameters": [
     ],
-    "uuid": "22a235dd-8391-4069-b302-3c637bd91969",
+    "uuid": "525a52d6-313e-46dd-9a43-51371ef0c155",
     "historyId": "f981524a61b62ab6860250c405a483f5",
     "fullName": "ru.iteco.fmhandroid.ui.test.LoginTest.loginWithEmptyLoginAndPassFieldTest",
     "labels": [
@@ -39,7 +71,7 @@
         },
         {
             "name": "thread",
-            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1001)"
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1521)"
         },
         {
             "name": "framework",

@@ -9,7 +9,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.allOf;
 
-import io.qameta.allure.kotlin.Step;
+import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
 import ru.iteco.fmhandroid.ui.utils.EspressoBaseTest;
 
@@ -24,8 +24,8 @@ public class NewsPage extends EspressoBaseTest {
         return R.id.add_news_image_view;
     }
 
-    @Step(value = "Проверка существования добавленной новости")
     public void checkAddedNews(String description, int position) {
+        Allure.step("Проверка существования добавленной новости c названием: " + description);
         onView(withId(newsList)).perform(actionOnItemAtPosition(position, click()));
         onView(allOf(withId(R.id.news_item_description_text_view), withText(description))).check(matches(isDisplayed()));
     }

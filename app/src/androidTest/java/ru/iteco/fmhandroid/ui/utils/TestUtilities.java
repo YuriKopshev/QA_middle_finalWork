@@ -25,7 +25,6 @@ import io.qameta.allure.kotlin.Step;
 
 public class TestUtilities {
 
-    @Step
     public static String getRandomComment() {
         final int stringLength = 10;
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -38,19 +37,16 @@ public class TestUtilities {
         return sb.toString();
     }
 
-    @Step
     public static String getRandomClaimName() {
         Random rand = new Random();
-        return "my claim" + rand.nextInt(10000);
+        return "my claim " + rand.nextInt(10000);
     }
 
-    @Step
     public static String getRandomNewsItem() {
         Random random = new Random();
-        return "My news #" + random.nextInt(10000);
+        return "My news # " + random.nextInt(10000);
     }
 
-    @Step
     public static ViewAction waitDisplayed(final int viewId, final long millis) {
         return new ViewAction() {
             @Override
@@ -92,7 +88,6 @@ public class TestUtilities {
         };
     }
 
-    @Step
     public static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
 

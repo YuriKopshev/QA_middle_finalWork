@@ -24,6 +24,7 @@ import androidx.test.espresso.ViewInteraction;
 
 import org.hamcrest.core.IsInstanceOf;
 
+import io.qameta.allure.kotlin.Allure;
 import io.qameta.allure.kotlin.Step;
 import ru.iteco.fmhandroid.R;
 import ru.iteco.fmhandroid.ui.utils.EspressoBaseTest;
@@ -36,32 +37,32 @@ public class CreateNewClaimPage extends EspressoBaseTest {
     private final int descriptionField = R.id.description_edit_text;
     private final int errorMessageId = android.R.id.message;
 
-    @Step(value = "Добавления заголовка к заявке")
     public void addClaimTitle(String name) {
+        Allure.step("Добавления заголовка к заявке с текстом: " + name);
         onView(withId(titleField)).perform(click())
                 .perform(replaceText(name), closeSoftKeyboard());
     }
 
-    @Step(value = "Choose claim date")
     public void addClaimDate() {
+        Allure.step("Выбор даты заявки");
         onView(withId(dateField)).perform(click());
         onView(withId(getOkButtonId())).perform(scrollTo(), click());
     }
 
-    @Step(value = "Add claim date with paste")
     public void addClaimDateWithPaste(String date) {
+        Allure.step("Добавление даты заявки с вставкой текста:" + date);
         onView(withId(dateField)).perform(longClick())
                 .perform(replaceText(date), closeSoftKeyboard());
     }
 
-    @Step(value = "Choose claim time")
     public void addClaimTime() {
+        Allure.step("Выбор времени заявки");
         onView(withId(timeField)).perform(click());
         onView(withId(getOkButtonId())).perform(scrollTo(), click());
     }
 
-    @Step(value = "Добавления описания к заявке")
     public void addClaimDescription(String description) {
+        Allure.step("Добавления описания к заявке с текстом: " + description);
         onView(withId(descriptionField)).perform(click())
                 .perform(replaceText(description), closeSoftKeyboard());
     }
@@ -82,8 +83,8 @@ public class CreateNewClaimPage extends EspressoBaseTest {
         return android.R.id.button1;
     }
 
-    @Step(value = "Choose claim time handle")
     public void addTimeWithInput(String hour) {
+        Allure.step("Добавление времени заявки с вставкой текста:" + hour);
         onView(withId(timeField)).perform(click());
         onView(allOf(withClassName(is("androidx.appcompat.widget.AppCompatImageButton")), withContentDescription("Switch to text input mode for the time input."))).perform(click());
         onView(allOf(withClassName(is("androidx.appcompat.widget.AppCompatEditText")),
@@ -93,15 +94,16 @@ public class CreateNewClaimPage extends EspressoBaseTest {
         onView(withId(getOkButtonId())).perform(scrollTo(), click());
     }
 
-    @Step(value = "Проверка отображения сообщения об ошибке при вводе времени")
     public void checkTimeErrorNotification(String message) {
+        Allure.step("Проверка отображения сообщения об ошибке при вводе времени с текстом: " + message);
         onView(allOf(IsInstanceOf.instanceOf(android.widget.TextView.class),
                 withText(message)))
                 .check(matches(isDisplayed()));
     }
 
-    @Step(value = "Проверка отображения сообщения об ошибке пр вводе данных о заявке")
     public void checkErrorMessage(String emptyFieldErrorMessage) {
+        Allure.step("Проверка отображения сообщения об ошибке при вводе неверных данных заявки" +
+                " с текстом ошибки: " + emptyFieldErrorMessage);
         onView(allOf(withId(errorMessageId), withText(emptyFieldErrorMessage))).check(matches(isDisplayed()));
     }
 }

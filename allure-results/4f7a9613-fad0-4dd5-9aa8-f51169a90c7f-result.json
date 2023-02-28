@@ -1,0 +1,169 @@
+{
+    "name": "createNewClaimWithEmptyFieldsTest",
+    "start": 1677580371332,
+    "stop": 1677580378440,
+    "stage": "finished",
+    "description": "Тест проверяет добавление новой заявки с незаполненными полями ввода",
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+        {
+            "name": "Клик по кнопке Все заявки",
+            "start": 1677580375218,
+            "stop": 1677580375218,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 2131230849",
+            "start": 1677580375570,
+            "stop": 1677580375570,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 2131231291",
+            "start": 1677580375911,
+            "stop": 1677580375911,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверка отображения сообщения об ошибке при вводе неверных данных заявки с текстом ошибки: Fill empty fields",
+            "start": 1677580376408,
+            "stop": 1677580376408,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 16908313",
+            "start": 1677580376410,
+            "stop": 1677580376410,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик со скроллом по кнопке c id: 2131230890",
+            "start": 1677580376759,
+            "stop": 1677580376759,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 16908313",
+            "start": 1677580377213,
+            "stop": 1677580377213,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        }
+    ],
+    "attachments": [
+    ],
+    "parameters": [
+    ],
+    "uuid": "4f7a9613-fad0-4dd5-9aa8-f51169a90c7f",
+    "historyId": "926d69bfc99e073abae0802c9ff112c8",
+    "fullName": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest.createNewClaimWithEmptyFieldsTest",
+    "labels": [
+        {
+            "name": "package",
+            "value": "ru.iteco.fmhandroid.ui.test"
+        },
+        {
+            "name": "testClass",
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
+        },
+        {
+            "name": "testMethod",
+            "value": "createNewClaimWithEmptyFieldsTest"
+        },
+        {
+            "name": "suite",
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1566)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        },
+        {
+            "name": "severity",
+            "value": "minor"
+        }
+    ]
+}

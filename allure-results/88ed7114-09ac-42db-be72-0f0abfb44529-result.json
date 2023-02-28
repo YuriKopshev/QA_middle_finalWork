@@ -1,0 +1,201 @@
+{
+    "name": "createNewClaimWithWrongTimeTest",
+    "start": 1677580360977,
+    "stop": 1677580371275,
+    "stage": "finished",
+    "description": "Тест проверяет добавление новой заявки с неверным временем",
+    "descriptionHtml": null,
+    "status": "passed",
+    "statusDetails": null,
+    "steps": [
+        {
+            "name": "Клик по кнопке Все заявки",
+            "start": 1677580364708,
+            "stop": 1677580364708,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 2131230849",
+            "start": 1677580365035,
+            "stop": 1677580365035,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Добавления заголовка к заявке с текстом: my claim 6474",
+            "start": 1677580365535,
+            "stop": 1677580365535,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Выбор даты заявки",
+            "start": 1677580366336,
+            "stop": 1677580366336,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Добавление времени заявки с вставкой текста:25",
+            "start": 1677580367715,
+            "stop": 1677580367715,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Проверка отображения сообщения об ошибке при вводе времени с текстом: Enter a valid time",
+            "start": 1677580368968,
+            "stop": 1677580368968,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 16908314",
+            "start": 1677580368971,
+            "stop": 1677580368971,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 2131230890",
+            "start": 1677580369332,
+            "stop": 1677580369332,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        },
+        {
+            "name": "Клик по кнопке c id: 16908313",
+            "start": 1677580369795,
+            "stop": 1677580369795,
+            "stage": "finished",
+            "description": null,
+            "descriptionHtml": null,
+            "status": "passed",
+            "statusDetails": null,
+            "steps": [
+            ],
+            "attachments": [
+            ],
+            "parameters": [
+            ]
+        }
+    ],
+    "attachments": [
+    ],
+    "parameters": [
+    ],
+    "uuid": "88ed7114-09ac-42db-be72-0f0abfb44529",
+    "historyId": "c5a09ab4e7f17c2c9921cb0d53d887bd",
+    "fullName": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest.createNewClaimWithWrongTimeTest",
+    "labels": [
+        {
+            "name": "package",
+            "value": "ru.iteco.fmhandroid.ui.test"
+        },
+        {
+            "name": "testClass",
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
+        },
+        {
+            "name": "testMethod",
+            "value": "createNewClaimWithWrongTimeTest"
+        },
+        {
+            "name": "suite",
+            "value": "ru.iteco.fmhandroid.ui.test.AppActivityClaimTest"
+        },
+        {
+            "name": "host",
+            "value": "localhost"
+        },
+        {
+            "name": "thread",
+            "value": "Instr: androidx.test.runner.AndroidJUnitRunner(1566)"
+        },
+        {
+            "name": "framework",
+            "value": "junit4"
+        },
+        {
+            "name": "language",
+            "value": "kotlin"
+        },
+        {
+            "name": "severity",
+            "value": "minor"
+        }
+    ]
+}

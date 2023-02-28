@@ -4,13 +4,10 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
-import androidx.test.espresso.ViewInteraction;
-
-import io.qameta.allure.kotlin.Step;
+import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
 import ru.iteco.fmhandroid.ui.utils.EspressoBaseTest;
 
@@ -23,13 +20,13 @@ public class AboutAppPage extends EspressoBaseTest {
         return R.id.about_back_image_button;
     }
 
-    @Step(value = "Проверка отображения информации о версии приложения")
     public void checkAppVersion(String version) {
+        Allure.step("Проверка отображения информации о версии приложения c номером: " + version);
         onView(allOf(withId(appVersionId), withText(version))).check(matches(isDisplayed()));
     }
 
-    @Step(value = "Проверка отображения информации о разработчике приложения и дате разработки")
     public void checkAppDeveloper(String info) {
+        Allure.step("Проверка отображения информации о приложении с содержанием: " + info);
         onView(allOf(withId(appDevId), withText(info))).check(matches(isDisplayed()));
     }
 }
