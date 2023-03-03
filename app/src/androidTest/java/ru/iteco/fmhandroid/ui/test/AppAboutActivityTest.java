@@ -1,6 +1,10 @@
 package ru.iteco.fmhandroid.ui.test;
 
 
+import androidx.test.core.app.ActivityScenario;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -19,25 +23,36 @@ public class AppAboutActivityTest extends BaseTest {
     private final static String ITEM_ABOUT = "About";
     private static final String APP_VERSION = "1.0.0";
     private static final String APP_DEVELOPER = "© I-Teco, 2022";
-    private final AuthorizationPage authorizationPage = new AuthorizationPage();
-    private final MainPage mainPage = new MainPage();
+    private final static AuthorizationPage authorizationPage = new AuthorizationPage();
+    private final static MainPage mainPage = new MainPage();
     private final AboutAppPage aboutAppPage = new AboutAppPage();
+
+    @BeforeClass
+    public static void setUp() {
+        ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
+        authorizationPage.waitAuthorizationPage();
+        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
+        authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
+        mainPage.waitLogOutButton();
+        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getTitleLogOutId());
+    }
 
     @Test
     @Severity(value = SeverityLevel.MINOR)
     @Description(value = "Тест проверяет отображение информации о версии и разработчике приложения")
     public void appAboutActivityTest() {
-        authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
-        authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
-        authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
         mainPage.waitMainPage();
         mainPage.chooseMainMenuItem(ITEM_ABOUT);
         aboutAppPage.checkAppVersion(APP_VERSION);
         aboutAppPage.checkAppDeveloper(APP_DEVELOPER);
-        AboutAppPage.clickButton(AboutAppPage.getBackIdButton());
-        AuthorizationPage.clickButton(MainPage.getLogOutButtonId());
-        MainPage.clickButton(MainPage.getTitleLogOutId());
+        authorizationPage.clickButton(AboutAppPage.getBackIdButton());
     }
 }

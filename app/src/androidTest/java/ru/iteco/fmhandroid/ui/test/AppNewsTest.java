@@ -42,18 +42,18 @@ public class AppNewsTest extends BaseTest {
     public static void setUp() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
     }
 
     @AfterClass
     public static void tearDown() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         mainPage.waitLogOutButton();
-        AuthorizationPage.clickButton(MainPage.getLogOutButtonId());
-        MainPage.clickButton(MainPage.getTitleLogOutId());
+        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getTitleLogOutId());
     }
 
     @Test
@@ -63,14 +63,14 @@ public class AppNewsTest extends BaseTest {
     public void addNewsItemTest() {
         mainPage.waitMainPage();
         String newsItemName = TestUtilities.getRandomNewsItem();
-        MainPage.clickButton(MainPage.getAllNewsButtonId());
-        NewsPage.clickButton(NewsPage.getEditButtonId());
-        NewsPage.clickButton(NewsPage.getAddNewsButtonId());
+        mainPage.clickButton(MainPage.getAllNewsButtonId());
+        newsPage.clickButton(NewsPage.getEditButtonId());
+        newsPage.clickButton(NewsPage.getAddNewsButtonId());
         createNewsPage.chooseCategoryAndTitle(TITLE);
         createNewsPage.addNewsDate();
         createNewsPage.addNewsTime();
         createNewsPage.addNewsDescription(newsItemName);
-        CreateNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
+        createNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
         mainPage.chooseMainMenuItem(ITEM_NEWS);
         newsPage.checkAddedNews(newsItemName, 0);
     }
@@ -82,15 +82,15 @@ public class AppNewsTest extends BaseTest {
         mainPage.waitMainPage();
         String newsItemName = TestUtilities.getRandomNewsItem();
         mainPage.chooseMainMenuItem(ITEM_NEWS);
-        NewsPage.clickButton(NewsPage.getEditButtonId());
-        NewsPage.clickButton(NewsPage.getAddNewsButtonId());
+        newsPage.clickButton(NewsPage.getEditButtonId());
+        newsPage.clickButton(NewsPage.getAddNewsButtonId());
         createNewsPage.chooseCategoryAndTitle(TITLE);
         createNewsPage.addNewsDate();
         createNewsPage.addNewsTime();
         createNewsPage.addNewsDescription(newsItemName);
-        CreateNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
+        createNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
         mainPage.chooseMainMenuItem(ITEM_MAIN);
-        MainPage.clickButton(MainPage.getAllNewsButtonId());
+        mainPage.clickButton(MainPage.getAllNewsButtonId());
         newsPage.checkAddedNews(newsItemName, 0);
     }
 
@@ -100,14 +100,14 @@ public class AppNewsTest extends BaseTest {
     public void addNewsItemWithWrongDateTest() {   //должен падать так как нет сообщения о не корректной дате: "Wrong date!"
         mainPage.waitMainPage();
         String newsItemName = TestUtilities.getRandomNewsItem();
-        MainPage.clickButton(MainPage.getAllNewsButtonId());
-        NewsPage.clickButton(NewsPage.getEditButtonId());
-        NewsPage.clickButton(NewsPage.getAddNewsButtonId());
+        mainPage.clickButton(MainPage.getAllNewsButtonId());
+        newsPage.clickButton(NewsPage.getEditButtonId());
+        newsPage.clickButton(NewsPage.getAddNewsButtonId());
         createNewsPage.chooseCategoryAndTitle(TITLE);
         createNewsPage.addNewsDateWithPaste(WRONG_DATE);
         createNewsPage.addNewsTime();
         createNewsPage.addNewsDescription(newsItemName);
-        CreateNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
-        CreateNewsPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
+        createNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
+        createNewsPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
     }
 }

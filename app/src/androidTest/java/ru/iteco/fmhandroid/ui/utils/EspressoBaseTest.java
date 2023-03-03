@@ -18,32 +18,32 @@ import io.qameta.allure.kotlin.Allure;
 
 public class EspressoBaseTest {
 
-    public static void clickButton(Integer resourceId) {
+    public void clickButton(Integer resourceId) {
         Allure.step("Клик по кнопке c id: " + resourceId);
         onView((withId(resourceId))).perform(click());
     }
 
-    public static void clickButtonWithScroll(Integer resourceId) {
+    public void clickButtonWithScroll(Integer resourceId) {
         Allure.step("Клик со скроллом по кнопке c id: " + resourceId);
         onView((withId(resourceId))).perform(scrollTo(), click());
     }
 
-    public static void checkById(Integer resourceId) {
+    public void checkById(Integer resourceId) {
         Allure.step("Проверка отображения элемента на странице c id: " + resourceId);
         onView(withId(resourceId)).check(matches(isDisplayed()));
     }
 
-    public static void checkByText(String text) {
+    public void checkByText(String text) {
         Allure.step("Проверка отображения текста: " + text + "на странице");
         onView((withText(text))).check(matches(withText(text)));
     }
 
-    public static void checkTextById(Integer resourceId, String text) {
+    public void checkTextById(Integer resourceId, String text) {
         Allure.step("Проверка отображения текста: " + text + " на странице по id: " + resourceId);
         onView((withId(resourceId))).check(matches(withText(text)));
     }
 
-    public static void checkToastMessage(String text, View decorView) {
+    public void checkToastMessage(String text, View decorView) {
         Allure.step("Проверка отображения сообщения об ошибке c текстом: " + text);
         onView(withText(text))
                 .inRoot(withDecorView(Matchers.not(decorView)))

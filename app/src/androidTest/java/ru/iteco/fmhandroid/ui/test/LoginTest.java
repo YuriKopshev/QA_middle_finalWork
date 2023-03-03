@@ -1,14 +1,8 @@
 package ru.iteco.fmhandroid.ui.test;
 
 
-import android.view.View;
-
-import androidx.test.core.app.ActivityScenario;
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -19,7 +13,6 @@ import io.qameta.allure.kotlin.Allure;
 import io.qameta.allure.kotlin.Description;
 import io.qameta.allure.kotlin.Severity;
 import io.qameta.allure.kotlin.SeverityLevel;
-import ru.iteco.fmhandroid.ui.AppActivity;
 import ru.iteco.fmhandroid.ui.pages.AuthorizationPage;
 import ru.iteco.fmhandroid.ui.pages.MainPage;
 import ru.iteco.fmhandroid.ui.utils.AuthorizationData;
@@ -38,14 +31,14 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение")
     public void successLoginTest() {
         authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
         mainPage.waitLogOutButton();
-        MainPage.checkById(MainPage.getLogoId());
-        AuthorizationPage.clickButton(MainPage.getLogOutButtonId());
-        MainPage.clickButton(MainPage.getTitleLogOutId());
+        mainPage.checkById(MainPage.getLogoId());
+        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getTitleLogOutId());
     }
 
     @Test
@@ -53,14 +46,14 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет logout из приложения")
     public void successLogoutTest() {
         authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
         mainPage.waitLogOutButton();
-        AuthorizationPage.clickButton(MainPage.getLogOutButtonId());
-        MainPage.clickButton(MainPage.getTitleLogOutId());
-        MainPage.checkByText(AUTH_TEXT_TITLE);
+        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getTitleLogOutId());
+        mainPage.checkByText(AUTH_TEXT_TITLE);
     }
 
     @Test
@@ -68,11 +61,11 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение с неверным логином и паролем")
     public void loginWithLoginAndPassInCapsFieldTest() {
         authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
         authorizationPage.inputTextInLoginField(AuthorizationData.getLoginCaps());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPasswordCaps());
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
-        MainPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        mainPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
     }
 
     @Test
@@ -80,8 +73,8 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение с пустыми полями логин и пароль")
     public void loginWithEmptyLoginAndPassFieldTest() {
         authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
-        MainPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        mainPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
     }
 
     @Test
@@ -89,18 +82,18 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение с неверным логином и паролем")
     public void loginWithSpaceInLoginFieldTest() {  // падает в try, так как проходит логин с пробелами
         authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
         authorizationPage.inputTextInLoginField(AuthorizationData.getLoginSpace());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
         try {
-            MainPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
+            mainPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
         } catch (Exception e) {
             Allure.attachment("Report", Objects.requireNonNull(e.getMessage()));
             e.printStackTrace();
         } finally {
-            AuthorizationPage.clickButton(MainPage.getLogOutButtonId());
-            MainPage.clickButton(MainPage.getTitleLogOutId());
+            authorizationPage.clickButton(MainPage.getLogOutButtonId());
+            mainPage.clickButton(MainPage.getTitleLogOutId());
         }
     }
 }

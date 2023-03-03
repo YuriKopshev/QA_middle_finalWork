@@ -44,18 +44,18 @@ public class AppActivityClaimTest extends BaseTest {
     public static void setUp() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         authorizationPage.waitAuthorizationPage();
-        AuthorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        AuthorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
     }
 
     @AfterClass
     public static void tearDown() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         mainPage.waitLogOutButton();
-        AuthorizationPage.clickButton(MainPage.getLogOutButtonId());
-        MainPage.clickButton(MainPage.getTitleLogOutId());
+        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getTitleLogOutId());
     }
 
     @Test
@@ -65,13 +65,13 @@ public class AppActivityClaimTest extends BaseTest {
         mainPage.waitMainPage();
         String claimName = TestUtilities.getRandomClaimName();
         mainPage.clickAllClaimButtonId();
-        ClaimPage.clickButton(ClaimPage.addNewClaimButtonId());
+        claimPage.clickButton(ClaimPage.addNewClaimButtonId());
         newClaimPage.addClaimTitle(claimName);
         newClaimPage.addClaimDate();
         newClaimPage.addClaimTime();
         newClaimPage.addClaimDescription(TestUtilities.getRandomComment());
-        CreateNewClaimPage.clickButtonWithScroll(CreateNewClaimPage.getSaveButtonId());
-        ClaimPage.clickButton(ClaimPage.getAllClaimButtonId());
+        newClaimPage.clickButtonWithScroll(CreateNewClaimPage.getSaveButtonId());
+        claimPage.clickButton(ClaimPage.getAllClaimButtonId());
         claimPage.checkAddedClaim(claimName);
     }
 
@@ -82,14 +82,14 @@ public class AppActivityClaimTest extends BaseTest {
         mainPage.waitMainPage();
         String claimName = TestUtilities.getRandomClaimName();
         mainPage.clickAllClaimButtonId();
-        ClaimPage.clickButton(ClaimPage.addNewClaimButtonId());
+        claimPage.clickButton(ClaimPage.addNewClaimButtonId());
         newClaimPage.addClaimTitle(claimName);
         newClaimPage.addClaimDate();
         newClaimPage.addTimeWithInput(WRONG_HOUR);
         newClaimPage.checkTimeErrorNotification(TIME_ERROR_MESSAGE);
-        CreateNewClaimPage.clickButton(CreateNewClaimPage.getCancelTimeInputButtonId());
-        CreateNewClaimPage.clickButton(CreateNewClaimPage.getCancelButtonId());
-        CreateNewClaimPage.clickButton(CreateNewClaimPage.getOkButtonId());
+        newClaimPage.clickButton(CreateNewClaimPage.getCancelTimeInputButtonId());
+        newClaimPage.clickButton(CreateNewClaimPage.getCancelButtonId());
+        newClaimPage.clickButton(CreateNewClaimPage.getOkButtonId());
     }
 
     @Test
@@ -99,12 +99,12 @@ public class AppActivityClaimTest extends BaseTest {
         mainPage.waitMainPage();
         String claimName = TestUtilities.getRandomClaimName();
         mainPage.clickAllClaimButtonId();
-        ClaimPage.clickButton(ClaimPage.addNewClaimButtonId());
+        claimPage.clickButton(ClaimPage.addNewClaimButtonId());
         newClaimPage.addClaimTitle(claimName);
         newClaimPage.addClaimDateWithPaste(WRONG_DATE);
         newClaimPage.addClaimTime();
         newClaimPage.addClaimDescription(TestUtilities.getRandomComment());
-        CreateNewClaimPage.clickButtonWithScroll(CreateNewClaimPage.getSaveButtonId());
+        newClaimPage.clickButtonWithScroll(CreateNewClaimPage.getSaveButtonId());
         newClaimPage.checkErrorMessage(DATE_ERROR_MESSAGE);
     }
 
@@ -114,11 +114,11 @@ public class AppActivityClaimTest extends BaseTest {
     public void createNewClaimWithEmptyFieldsTest() {
         mainPage.waitMainPage();
         mainPage.clickAllClaimButtonId();
-        ClaimPage.clickButton(ClaimPage.addNewClaimButtonId());
-        CreateNewClaimPage.clickButton(CreateNewClaimPage.getSaveButtonId());
+        claimPage.clickButton(ClaimPage.addNewClaimButtonId());
+        newClaimPage.clickButton(CreateNewClaimPage.getSaveButtonId());
         newClaimPage.checkErrorMessage(EMPTY_FIELD_ERROR_MESSAGE);
-        CreateNewClaimPage.clickButton(CreateNewClaimPage.getOkButtonId());
-        CreateNewClaimPage.clickButtonWithScroll(CreateNewClaimPage.getCancelButtonId());
-        CreateNewClaimPage.clickButton(CreateNewClaimPage.getOkButtonId());
+        newClaimPage.clickButton(CreateNewClaimPage.getOkButtonId());
+        newClaimPage.clickButtonWithScroll(CreateNewClaimPage.getCancelButtonId());
+        newClaimPage.clickButton(CreateNewClaimPage.getOkButtonId());
     }
 }
