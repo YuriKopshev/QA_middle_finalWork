@@ -42,10 +42,11 @@ public class MainPage extends EspressoBaseTest {
         return R.id.our_mission_image_button;
     }
 
-    public void waitMainPage(){
+    public void waitMainPage() {
         onView(isRoot()).perform(waitDisplayed(MainPage.getLogoId(), 5000));
     }
-    public void waitLogOutButton(){
+
+    public void waitLogOutButton() {
         onView(isRoot()).perform(waitDisplayed(MainPage.getLogOutButtonId(), 5000));
     }
 
@@ -63,5 +64,4 @@ public class MainPage extends EspressoBaseTest {
                 .inRoot(RootMatchers.isPlatformPopup())      //DropDown value selection
                 .perform(click());
     }
-
 }

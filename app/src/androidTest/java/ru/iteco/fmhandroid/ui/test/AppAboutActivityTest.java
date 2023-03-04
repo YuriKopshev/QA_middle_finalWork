@@ -41,7 +41,7 @@ public class AppAboutActivityTest extends BaseTest {
     public static void tearDown() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         mainPage.waitLogOutButton();
-        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getLogOutButtonId());
         mainPage.clickButton(MainPage.getTitleLogOutId());
     }
 
@@ -53,6 +53,6 @@ public class AppAboutActivityTest extends BaseTest {
         mainPage.chooseMainMenuItem(ITEM_ABOUT);
         aboutAppPage.checkAppVersion(APP_VERSION);
         aboutAppPage.checkAppDeveloper(APP_DEVELOPER);
-        authorizationPage.clickButton(AboutAppPage.getBackIdButton());
+        aboutAppPage.clickButton(AboutAppPage.getBackIdButton());
     }
 }

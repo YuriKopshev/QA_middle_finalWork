@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
     private final String AUTH_TEXT_TITLE = "Authorization";
     private final String ERROR_MESSAGE_1 = "Login and password cannot be empty";
     private final String ERROR_MESSAGE_2 = "Wrong login or password";
-    private AuthorizationPage authorizationPage = new AuthorizationPage();
+    private final AuthorizationPage authorizationPage = new AuthorizationPage();
     private final MainPage mainPage = new MainPage();
 
     @Test
@@ -37,7 +37,7 @@ public class LoginTest extends BaseTest {
         authorizationPage.clickButton(AuthorizationPage.getSignInButton());
         mainPage.waitLogOutButton();
         mainPage.checkById(MainPage.getLogoId());
-        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getLogOutButtonId());
         mainPage.clickButton(MainPage.getTitleLogOutId());
     }
 
@@ -51,7 +51,7 @@ public class LoginTest extends BaseTest {
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
         authorizationPage.clickButton(AuthorizationPage.getSignInButton());
         mainPage.waitLogOutButton();
-        authorizationPage.clickButton(MainPage.getLogOutButtonId());
+        mainPage.clickButton(MainPage.getLogOutButtonId());
         mainPage.clickButton(MainPage.getTitleLogOutId());
         mainPage.checkByText(AUTH_TEXT_TITLE);
     }
@@ -65,7 +65,7 @@ public class LoginTest extends BaseTest {
         authorizationPage.inputTextInLoginField(AuthorizationData.getLoginCaps());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPasswordCaps());
         authorizationPage.clickButton(AuthorizationPage.getSignInButton());
-        mainPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
+        authorizationPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class LoginTest extends BaseTest {
     public void loginWithEmptyLoginAndPassFieldTest() {
         authorizationPage.waitAuthorizationPage();
         authorizationPage.clickButton(AuthorizationPage.getSignInButton());
-        mainPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
+        authorizationPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
     }
 
     @Test
@@ -87,13 +87,13 @@ public class LoginTest extends BaseTest {
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
         authorizationPage.clickButton(AuthorizationPage.getSignInButton());
         try {
-            mainPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
+            authorizationPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
         } catch (Exception e) {
             Allure.attachment("Report", Objects.requireNonNull(e.getMessage()));
             e.printStackTrace();
         } finally {
             authorizationPage.clickButton(MainPage.getLogOutButtonId());
-            mainPage.clickButton(MainPage.getTitleLogOutId());
+            authorizationPage.clickButton(MainPage.getTitleLogOutId());
         }
     }
 }
