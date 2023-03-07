@@ -31,18 +31,18 @@ public class AppAboutActivityTest extends BaseTest {
     public static void setUp() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         authorizationPage.waitAuthorizationPage();
-        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickLoginFieldInput();
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickSignInButton();
     }
 
     @AfterClass
     public static void tearDown() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         mainPage.waitLogOutButton();
-        mainPage.clickButton(MainPage.getLogOutButtonId());
-        mainPage.clickButton(MainPage.getTitleLogOutId());
+        mainPage.clickLogOutButton();
+        mainPage.clickTitleLogOutButton();
     }
 
     @Test
@@ -53,6 +53,6 @@ public class AppAboutActivityTest extends BaseTest {
         mainPage.chooseMainMenuItem(ITEM_ABOUT);
         aboutAppPage.checkAppVersion(APP_VERSION);
         aboutAppPage.checkAppDeveloper(APP_DEVELOPER);
-        aboutAppPage.clickButton(AboutAppPage.getBackIdButton());
+        aboutAppPage.clickBackIdButton();
     }
 }

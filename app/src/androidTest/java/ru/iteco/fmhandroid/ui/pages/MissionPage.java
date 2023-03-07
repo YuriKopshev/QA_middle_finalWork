@@ -9,9 +9,8 @@ import static org.hamcrest.Matchers.allOf;
 
 import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
-import ru.iteco.fmhandroid.ui.utils.EspressoBaseTest;
 
-public class MissionPage extends EspressoBaseTest {
+public class MissionPage {
     private final int missionItemTitleId = R.id.our_mission_item_title_text_view;
     private final int missionItemMaterialCardId = R.id.our_mission_item_material_card_view;
 
@@ -21,5 +20,4 @@ public class MissionPage extends EspressoBaseTest {
                 withParent(withParent(withId(missionItemMaterialCardId))),
                 isDisplayed()));
     }
-
 }

@@ -6,23 +6,30 @@ import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.longClick;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
+import android.view.View;
+
 import androidx.test.espresso.matcher.RootMatchers;
+
+import org.hamcrest.Matchers;
 
 import io.qameta.allure.kotlin.Allure;
 import io.qameta.allure.kotlin.Step;
 import ru.iteco.fmhandroid.R;
-import ru.iteco.fmhandroid.ui.utils.EspressoBaseTest;
 
-public class CreateNewsPage extends EspressoBaseTest {
+public class CreateNewsPage {
     private final int categoryInputId = com.google.android.material.R.id.text_input_end_icon;
     private final int dateField = R.id.news_item_publish_date_text_input_edit_text;
     private final int timeField = R.id.news_item_publish_time_text_input_edit_text;
     private final int descriptionField = R.id.news_item_description_text_input_edit_text;
+    private final int saveButtonId = R.id.save_button;
     private final int okButton = android.R.id.button1;
 
 
@@ -59,8 +66,20 @@ public class CreateNewsPage extends EspressoBaseTest {
                 .perform(longClick()).perform(replaceText(date), closeSoftKeyboard());
     }
 
-    public static int getSaveButtonId() {
-        return R.id.save_button;
+    public void clickButtonWithScroll(Integer resourceId) {
+        Allure.step("Клик со скроллом по кнопке c id: " + resourceId);
+        onView((withId(resourceId))).perform(scrollTo(), click());
     }
 
+    public void checkToastMessage(String text, View decorView) {
+        Allure.step("Проверка отображения сообщения об ошибке c текстом: " + text);
+        onView(withText(text))
+                .inRoot(withDecorView(Matchers.not(decorView)))
+                .check(matches(isDisplayed()));
+    }
+
+    public void clickSaveButtonWithScroll() {
+        Allure.step("Клик со скроллом по кнопке c id: " + saveButtonId);
+        onView((withId(saveButtonId))).perform(scrollTo(), click());
+    }
 }

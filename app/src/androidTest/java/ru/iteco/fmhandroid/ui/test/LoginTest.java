@@ -31,14 +31,14 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение")
     public void successLoginTest() {
         authorizationPage.waitAuthorizationPage();
-        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickLoginFieldInput();
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickSignInButton();
         mainPage.waitLogOutButton();
-        mainPage.checkById(MainPage.getLogoId());
-        mainPage.clickButton(MainPage.getLogOutButtonId());
-        mainPage.clickButton(MainPage.getTitleLogOutId());
+        mainPage.checkLogoId();
+        mainPage.clickLogOutButton();
+        mainPage.clickTitleLogOutButton();
     }
 
     @Test
@@ -46,13 +46,13 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет logout из приложения")
     public void successLogoutTest() {
         authorizationPage.waitAuthorizationPage();
-        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickLoginFieldInput();
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickSignInButton();
         mainPage.waitLogOutButton();
-        mainPage.clickButton(MainPage.getLogOutButtonId());
-        mainPage.clickButton(MainPage.getTitleLogOutId());
+        mainPage.clickLogOutButton();
+        mainPage.clickTitleLogOutButton();
         mainPage.checkByText(AUTH_TEXT_TITLE);
     }
 
@@ -61,10 +61,10 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение с неверным логином и паролем")
     public void loginWithLoginAndPassInCapsFieldTest() {
         authorizationPage.waitAuthorizationPage();
-        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickLoginFieldInput();
         authorizationPage.inputTextInLoginField(AuthorizationData.getLoginCaps());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPasswordCaps());
-        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickSignInButton();
         authorizationPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
     }
 
@@ -73,7 +73,7 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение с пустыми полями логин и пароль")
     public void loginWithEmptyLoginAndPassFieldTest() {
         authorizationPage.waitAuthorizationPage();
-        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickSignInButton();
         authorizationPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
     }
 
@@ -82,18 +82,18 @@ public class LoginTest extends BaseTest {
     @Description(value = "Тест проверяет вход в приложение с неверным логином и паролем")
     public void loginWithSpaceInLoginFieldTest() {  // падает в try, так как проходит логин с пробелами
         authorizationPage.waitAuthorizationPage();
-        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickLoginFieldInput();
         authorizationPage.inputTextInLoginField(AuthorizationData.getLoginSpace());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickSignInButton();
         try {
             authorizationPage.checkToastMessage(ERROR_MESSAGE_2, decorView);
         } catch (Exception e) {
             Allure.attachment("Report", Objects.requireNonNull(e.getMessage()));
             e.printStackTrace();
         } finally {
-            authorizationPage.clickButton(MainPage.getLogOutButtonId());
-            authorizationPage.clickButton(MainPage.getTitleLogOutId());
+            mainPage.clickLogOutButton();
+            mainPage.clickTitleLogOutButton();
         }
     }
 }

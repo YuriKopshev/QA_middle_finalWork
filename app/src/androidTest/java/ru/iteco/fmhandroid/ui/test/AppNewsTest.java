@@ -2,12 +2,10 @@ package ru.iteco.fmhandroid.ui.test;
 
 
 import androidx.test.core.app.ActivityScenario;
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -16,7 +14,6 @@ import io.qameta.allure.kotlin.Description;
 import io.qameta.allure.kotlin.Flaky;
 import io.qameta.allure.kotlin.Severity;
 import io.qameta.allure.kotlin.SeverityLevel;
-import ru.iteco.fmhandroid.ui.AppActivity;
 import ru.iteco.fmhandroid.ui.pages.AuthorizationPage;
 import ru.iteco.fmhandroid.ui.pages.CreateNewsPage;
 import ru.iteco.fmhandroid.ui.pages.MainPage;
@@ -37,23 +34,22 @@ public class AppNewsTest extends BaseTest {
     private final NewsPage newsPage = new NewsPage();
     private final static MainPage mainPage = new MainPage();
 
-
     @BeforeClass
     public static void setUp() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         authorizationPage.waitAuthorizationPage();
-        authorizationPage.clickButton(AuthorizationPage.getLoginFieldInput());
+        authorizationPage.clickLoginFieldInput();
         authorizationPage.inputTextInLoginField(AuthorizationData.getLogin());
         authorizationPage.inputTextInPasswordField(AuthorizationData.getPassword());
-        authorizationPage.clickButton(AuthorizationPage.getSignInButton());
+        authorizationPage.clickSignInButton();
     }
 
     @AfterClass
     public static void tearDown() {
         ActivityScenario.launch(ru.iteco.fmhandroid.ui.AppActivity.class);
         mainPage.waitLogOutButton();
-        mainPage.clickButton(MainPage.getLogOutButtonId());
-        mainPage.clickButton(MainPage.getTitleLogOutId());
+        mainPage.clickLogOutButton();
+        mainPage.clickTitleLogOutButton();
     }
 
     @Test
@@ -63,14 +59,14 @@ public class AppNewsTest extends BaseTest {
     public void addNewsItemTest() {
         mainPage.waitMainPage();
         String newsItemName = TestUtilities.getRandomNewsItem();
-        mainPage.clickButton(MainPage.getAllNewsButtonId());
-        newsPage.clickButton(NewsPage.getEditButtonId());
-        newsPage.clickButton(NewsPage.getAddNewsButtonId());
+        mainPage.clickAllNewsButton();
+        newsPage.clickEditButton();
+        newsPage.clickAddNewsButton();
         createNewsPage.chooseCategoryAndTitle(TITLE);
         createNewsPage.addNewsDate();
         createNewsPage.addNewsTime();
         createNewsPage.addNewsDescription(newsItemName);
-        createNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
+        createNewsPage.clickSaveButtonWithScroll();
         mainPage.chooseMainMenuItem(ITEM_NEWS);
         newsPage.checkAddedNews(newsItemName, 0);
     }
@@ -82,15 +78,15 @@ public class AppNewsTest extends BaseTest {
         mainPage.waitMainPage();
         String newsItemName = TestUtilities.getRandomNewsItem();
         mainPage.chooseMainMenuItem(ITEM_NEWS);
-        newsPage.clickButton(NewsPage.getEditButtonId());
-        newsPage.clickButton(NewsPage.getAddNewsButtonId());
+        newsPage.clickEditButton();
+        newsPage.clickAddNewsButton();
         createNewsPage.chooseCategoryAndTitle(TITLE);
         createNewsPage.addNewsDate();
         createNewsPage.addNewsTime();
         createNewsPage.addNewsDescription(newsItemName);
-        createNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
+        createNewsPage.clickSaveButtonWithScroll();
         mainPage.chooseMainMenuItem(ITEM_MAIN);
-        mainPage.clickButton(MainPage.getAllNewsButtonId());
+        mainPage.clickAllNewsButton();
         newsPage.checkAddedNews(newsItemName, 0);
     }
 
@@ -100,14 +96,14 @@ public class AppNewsTest extends BaseTest {
     public void addNewsItemWithWrongDateTest() {   //должен падать так как нет сообщения о не корректной дате: "Wrong date!"
         mainPage.waitMainPage();
         String newsItemName = TestUtilities.getRandomNewsItem();
-        mainPage.clickButton(MainPage.getAllNewsButtonId());
-        newsPage.clickButton(NewsPage.getEditButtonId());
-        newsPage.clickButton(NewsPage.getAddNewsButtonId());
+        mainPage.clickAllNewsButton();
+        newsPage.clickEditButton();
+        newsPage.clickAddNewsButton();
         createNewsPage.chooseCategoryAndTitle(TITLE);
         createNewsPage.addNewsDateWithPaste(WRONG_DATE);
         createNewsPage.addNewsTime();
         createNewsPage.addNewsDescription(newsItemName);
-        createNewsPage.clickButtonWithScroll(CreateNewsPage.getSaveButtonId());
+        createNewsPage.clickSaveButtonWithScroll();
         createNewsPage.checkToastMessage(ERROR_MESSAGE_1, decorView);
     }
 }

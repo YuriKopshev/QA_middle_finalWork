@@ -11,22 +11,25 @@ import static org.hamcrest.CoreMatchers.allOf;
 
 import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
-import ru.iteco.fmhandroid.ui.utils.EspressoBaseTest;
 
-public class NewsPage extends EspressoBaseTest {
+public class NewsPage {
     private final int newsList = R.id.news_list_recycler_view;
-
-    public static int getEditButtonId() {
-        return R.id.edit_news_material_button;
-    }
-
-    public static int getAddNewsButtonId() {
-        return R.id.add_news_image_view;
-    }
+    private final int editButtonId = R.id.edit_news_material_button;
+    private final int addNewsButtonId = R.id.add_news_image_view;
 
     public void checkAddedNews(String description, int position) {
         Allure.step("Проверка существования добавленной новости c названием: " + description);
         onView(withId(newsList)).perform(actionOnItemAtPosition(position, click()));
         onView(allOf(withId(R.id.news_item_description_text_view), withText(description))).check(matches(isDisplayed()));
+    }
+
+    public void clickEditButton() {
+        Allure.step("Клик по кнопке c id: " + editButtonId);
+        onView((withId(editButtonId))).perform(click());
+    }
+
+    public void clickAddNewsButton() {
+        Allure.step("Клик по кнопке c id: " + addNewsButtonId);
+        onView((withId(addNewsButtonId))).perform(click());
     }
 }
