@@ -48,11 +48,6 @@ public class MainPage {
                 .perform(click());
     }
 
-    public void checkByText(String text) {
-        Allure.step("Проверка отображения текста: " + text + "на странице");
-        onView((withText(text))).check(matches(withText(text)));
-    }
-
     public void checkTextById(Integer resourceId, String text) {
         Allure.step("Проверка отображения текста: " + text + " на странице по id: " + resourceId);
         onView((withId(resourceId))).check(matches(withText(text)));

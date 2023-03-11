@@ -1,8 +1,13 @@
 package ru.iteco.fmhandroid.ui.test;
 
 
+import static com.google.firebase.crashlytics.internal.Logger.TAG;
+
+import android.util.Log;
+
 import androidx.test.filters.LargeTest;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -26,6 +31,18 @@ public class LoginTest extends BaseTest {
     private final AuthorizationPage authorizationPage = new AuthorizationPage();
     private final MainPage mainPage = new MainPage();
 
+    @Before
+    public void setUp() {
+        boolean checkState = authorizationPage.checkStartState();
+        Log.d(TAG, "START STATE: " + checkState);
+        if (!checkState) {
+            mainPage.waitLogOutButton();
+            mainPage.checkLogoId();
+            mainPage.clickLogOutButton();
+            mainPage.clickTitleLogOutButton();
+        }
+    }
+
     @Test
     @Severity(value = SeverityLevel.BLOCKER)
     @Description(value = "Тест проверяет вход в приложение")
@@ -37,8 +54,6 @@ public class LoginTest extends BaseTest {
         authorizationPage.clickSignInButton();
         mainPage.waitLogOutButton();
         mainPage.checkLogoId();
-        mainPage.clickLogOutButton();
-        mainPage.clickTitleLogOutButton();
     }
 
     @Test
@@ -53,7 +68,7 @@ public class LoginTest extends BaseTest {
         mainPage.waitLogOutButton();
         mainPage.clickLogOutButton();
         mainPage.clickTitleLogOutButton();
-        mainPage.checkByText(AUTH_TEXT_TITLE);
+        authorizationPage.checkByText(AUTH_TEXT_TITLE);
     }
 
     @Test
@@ -91,9 +106,6 @@ public class LoginTest extends BaseTest {
         } catch (Exception e) {
             Allure.attachment("Report", Objects.requireNonNull(e.getMessage()));
             e.printStackTrace();
-        } finally {
-            mainPage.clickLogOutButton();
-            mainPage.clickTitleLogOutButton();
         }
     }
 }

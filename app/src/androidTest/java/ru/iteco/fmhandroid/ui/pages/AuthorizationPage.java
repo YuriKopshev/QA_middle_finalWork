@@ -17,10 +17,17 @@ import static ru.iteco.fmhandroid.ui.utils.TestUtilities.waitDisplayed;
 
 import android.view.View;
 
+import androidx.test.espresso.FailureHandler;
+import androidx.test.espresso.NoMatchingViewException;
+
+import junit.framework.AssertionFailedError;
+
+import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 
 import io.qameta.allure.kotlin.Allure;
 import ru.iteco.fmhandroid.R;
+
 
 public class AuthorizationPage {
     private final int loginFieldId = R.id.login_text_input_layout;
@@ -61,6 +68,38 @@ public class AuthorizationPage {
         Allure.step("Клик по кнопке c id: " + signInButtonId);
         onView((withId(signInButtonId))).perform(click());
     }
+
+    public boolean checkStartState() {
+        waitAuthorizationPage();
+        return AuthorizationPage.viewIsDisplayed(loginFieldId);
+    }
+
+    public void checkByText(String text) {
+        Allure.step("Проверка отображения текста: " + text + "на странице");
+        onView((withText(text))).check(matches(withText(text)));
+    }
+
+    public static boolean viewIsDisplayed(int viewId) {
+        final boolean[] isDisplayed = {true};
+        onView(withId(viewId)).withFailureHandler(new FailureHandler() {
+            @Override
+            public void handle(Throwable error, Matcher<View> viewMatcher) {
+                isDisplayed[0] = false;
+            }
+        }).check(matches(isDisplayed()));
+        return isDisplayed[0];
+    }
+
+
+    public static boolean isViewDisplayed(int viewId) {
+        try {
+            onView(withId(viewId)).check(matches(isDisplayed()));
+            return true;
+        } catch (NoMatchingViewException | AssertionFailedError e) {
+            return false;
+        }
+    }
 }
+
 
 
